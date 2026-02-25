@@ -1,0 +1,100 @@
+目录
+1. 前置条件
+2. 安装 OpenClaw
+3. 初次配置与引导
+4. 启动与验证
+5. 控制面板（Dashboard）访问
+6. 权限与 macOS 特性设置
+7. 常见检查与调试
+
+---
+1. 前置条件
+确保你的 macOS 环境满足以下要求：
+- macOS 系统（推荐 macOS Sonoma 或更高）
+- Node.js ≥ 22
+- node --version
+- （可选）pnpm 用于源代码开发环境
+- （可选）Docker 若使用容器化部署 
+
+---
+2. 安装 OpenClaw
+方法一：一键脚本（推荐）
+打开终端执行：
+curl -fsSL https://openclaw.ai/install.sh | bash
+这个脚本会自动安装 OpenClaw CLI 并引导初次配置。
+
+方法二：（4行命令 容易成功）
+安装Node.js
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install node 
+npm install -g openclaw@latest
+openclaw onboard --install-daemon
+
+---
+3. 初次配置与引导
+安装后，运行引导向导：
+openclaw onboard --install-daemon
+这将：
+- 配置身份认证（如 API Key 或 OAuth）
+- 配置本地 Gateway 服务
+- 创建默认配置目录 ~/.openclaw/
+
+---
+4. 启动与验证
+查看服务状态
+openclaw gateway status
+若服务正常启动，会显示运行状态。
+手动启动 Gateway（调试用）
+openclaw gateway --port 18789
+
+---
+5. 控制面板（Dashboard）
+完成安装后，可进入 Dashboard UI：
+👉 在浏览器里访问：
+http://127.0.0.1:18789/
+如果成功打开，说明服务已正确运行并可以开始交互。 
+
+---
+6. macOS 特殊权限设置
+macOS 版 OpenClaw 支持原生菜单栏 App，与系统深度集成（TCC 权限）。
+你可能需要允许：
+- 通知权限
+- Accessibility（辅助功能）
+- 屏幕录制
+- 语音识别
+- 自动化 / AppleScript
+这些权限会在第一次使用时自动弹出系统提示，根据提示允许即可。 
+
+---
+7. 常见检查与调试
+🚫 找不到 openclaw 命令
+检查：
+node --version
+npm --version
+which openclaw
+若找不到 CLI，请重新安装。 
+
+---
+📍 端口被占用
+查看端口监听：
+lsof -nP -iTCP:18789 -sTCP:LISTEN
+结束占用进程或更改端口。
+
+---
+8. 推荐后续步骤（非必需）
+连接聊天渠道
+例如：
+openclaw channels login
+用于 WhatsApp / Telegram / Discord 等对接。
+发送测试消息
+openclaw message send --target +15555550123 --message "Hello from OpenClaw"
+如果正确收到消息，则说明渠道配置成功。 
+
+---
+⚠️ 小贴士
+- macOS 菜单栏 App 可管理 Gateway，自动处理后台守护进程。 
+- 初次运行可能需要多点时间完成 OAuth 或模型配置。 
+- 请尽量使用 官方安装脚本 保证依赖完整性。 
+
+---
+如需进阶内容，比如 接入本地 LLM（Ollama 等）、技能系统（skills）配置 或 iMessage / macOS 工具调用等，我也可以帮你补充。

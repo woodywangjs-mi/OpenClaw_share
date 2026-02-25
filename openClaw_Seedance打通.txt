@@ -1,0 +1,42 @@
+# coding:utf-8
+from __future__ import print_function
+import os
+import sys
+import base64
+import json
+from datetime import datetime
+
+from volcengine import visual
+from volcengine.visual.VisualService import VisualService
+
+access_key = ""
+secret_key = ""
+
+# 图片保存目录
+IMAGE_DIR = "."
+  
+if __name__ == '__main__':
+    visual_service = VisualService()
+
+    # set ak and sk
+    visual_service.set_ak(access_key)
+    visual_service.set_sk(secret_key)
+
+    prompt = sys.argv[1] if len(sys.argv) > 1 else input("请输入prompt: ")
+    
+    form = {
+        "req_key": "jimeng_t2i_v40",
+        "prompt": prompt,
+        "scale": 0.5
+    }
+
+    resp = visual_service.cv_process(form)
+    print(resp)
+    open(os.path.join(".", 'resp.txt'), 'w').write(str(resp))
+    
+    # 从 resp.txt 读取并保存图片
+    data = eval(open(os.path.join(IMAGE_DIR, 'resp.txt')).read())
+    if data.get('data', {}).get('binary_data_base64'):
+        img_data = base64.b64decode(data['data']['binary_data_base64'][0])
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        open(os.path.join(".", f'image_{timestamp}.png'), 'wb').write(img_data)

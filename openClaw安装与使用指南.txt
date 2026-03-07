@@ -29,7 +29,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 brew install node 
 npm install -g openclaw@latest
 openclaw onboard --install-daemon
-
+AIzaSyD77V5lDRLECh2IYGLe3ZTF1bSEkYkGsJQ
 ---
 3. 初次配置与引导
 安装后，运行引导向导：
@@ -90,11 +90,3 @@ openclaw channels login
 openclaw message send --target +15555550123 --message "Hello from OpenClaw"
 如果正确收到消息，则说明渠道配置成功。 
 
----
-⚠️ 小贴士
-- macOS 菜单栏 App 可管理 Gateway，自动处理后台守护进程。 
-- 初次运行可能需要多点时间完成 OAuth 或模型配置。 
-- 请尽量使用 官方安装脚本 保证依赖完整性。 
-
----
-如需进阶内容，比如 接入本地 LLM（Ollama 等）、技能系统（skills）配置 或 iMessage / macOS 工具调用等，我也可以帮你补充。

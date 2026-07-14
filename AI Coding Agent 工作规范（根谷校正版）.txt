@@ -1,6 +1,3 @@
-https://github.com/woodywangjs-mi/OpenClaw_share
-
-
 
 # AI Coding Agent 工作规范（根谷校正版）
 

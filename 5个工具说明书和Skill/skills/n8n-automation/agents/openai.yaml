@@ -1,0 +1,4 @@
+interface:
+  display_name: "n8n 自动化"
+  short_description: "用 n8n 设计、搭建、测试并维护自动化工作流。"
+  default_prompt: "Use $n8n-automation to design a reliable automation workflow."

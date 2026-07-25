@@ -1,0 +1,4 @@
+interface:
+  display_name: "Seedance 视频生成"
+  short_description: "用 Seedance 设计和迭代 AI 视频镜头。"
+  default_prompt: "Use $seedance-video to plan prompts for a short vertical video."

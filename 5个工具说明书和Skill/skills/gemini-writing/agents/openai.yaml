@@ -1,0 +1,4 @@
+interface:
+  display_name: "Gemini 写作与思考"
+  short_description: "用 Gemini 完成方案、资料整理与思考任务。"
+  default_prompt: "Use $gemini-writing to turn my notes into a clear action plan."

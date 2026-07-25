@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex 编程开发"
+  short_description: "用 Codex 分析、修改、测试并验证程序代码。"
+  default_prompt: "Use $codex-development to diagnose and fix this code issue."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image2 图片创作"
+  short_description: "用 Image2 规划、生成并迭代商业视觉图片。"
+  default_prompt: "Use $image2-creation to create a product-image prompt."

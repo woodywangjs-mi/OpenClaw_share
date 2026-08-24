@@ -1,0 +1,4 @@
+interface:
+  display_name: "书籍蒸馏"
+  short_description: "把整本书提炼成有出处、可验证、可行动、可教学的知识框架"
+  default_prompt: "使用 $book-distiller 蒸馏这本书，并保留章节或页码证据。"

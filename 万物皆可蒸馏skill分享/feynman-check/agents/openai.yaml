@@ -1,0 +1,4 @@
+interface:
+  display_name: "费曼检测法"
+  short_description: "通过解释、实作、纠错和迁移测试，检查是否真正学会并能应用"
+  default_prompt: "使用 $feynman-check 检查我是否真正学会了这个内容。"
